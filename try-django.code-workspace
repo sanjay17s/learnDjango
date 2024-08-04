@@ -5,7 +5,12 @@
 		},
 		{
 			"path": "."
+		},
+		{
+			"path": "../web-dev"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "web-dev"
+	}
 }
