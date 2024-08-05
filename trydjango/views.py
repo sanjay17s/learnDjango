@@ -8,10 +8,16 @@ and this function which acts as a receiver of this request routes this to views.
 
 from django.shortcuts import render
 from django.http import HttpResponse
-
-HTML_STRING="""
-<h1>Hello World</h1>"""
+import random
 
 def home(request):
-# this function takes in a request and then returns a html as Response
+    # This function takes in a request and then returns HTML as Response
+    name = "sanjay"
+    num = random.randint(10, 7899)
+    HTML_STRING = f"""
+    <h1>Hello {name.title()} - {num}</h1>"""
     return HttpResponse(HTML_STRING)
+
+def abc(request):
+    res = "hignkfs"
+    return HttpResponse(res)
