@@ -27,7 +27,7 @@
     <div>
         <ul>
             {% for obj in objects%}
-            <li>{{obj}}</li>
+            <a href="/articles/{{obj.id}}"><li>{{obj}}</li></a>
             {% endfor %}
             
         </ul>

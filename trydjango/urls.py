@@ -19,10 +19,12 @@ from django.urls import path
 
 from .views import home
 from .views import abc
+from articles.views import articles_home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),
-    path('abc',abc)
+    path('abc',abc),
+    path('articles/2',articles_home)
 
 ]
