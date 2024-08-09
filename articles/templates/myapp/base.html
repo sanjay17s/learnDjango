@@ -1,0 +1,30 @@
+<!--Hmm, so Django templates are like HTML files with special spots for dynamic
+    info, huh? That's pretty cool. It's like they let you create web pages that
+    can change based on what you feed them. Separates the design from the 
+    code, making it easier to manage. Neat stuff!-->
+<!--/Users/sanjays/Desktop/Projects/try-django/articles/templates/myapp/some_file.html-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{{ title }}{% endblock %}</title>
+       
+    </head>
+<body>
+    <header>
+        <h1>{% block header %}{{ title }}{% endblock %}</h1>
+    </header>
+    <main>
+        <h2>{% block subheader %}{{ title }}{% endblock %}</h2>
+        <p>{% block content %}{{ content }}{% endblock %}</p>
+    </main>
+    <footer>
+        {% block footer %}
+        <p>&copy; 2024 My Amazing Site</p>
+        {% endblock %}
+    </footer>
+
+   
+</body>
+</html>

@@ -6,13 +6,20 @@ web pages. When a user requests a specific URL (e.g., `/home`), Django maps the
 from django.shortcuts import render
 from django.http import HttpResponse
 from articles.models import Article
+from django.template.loader import render_to_string 
+from django.template import TemplateDoesNotExist
+
+
 import random
 
 
 def home(request):
+    print("hi i am here")
     # This function takes in a request and then returns HTML as Response
     try:
-        article = Article.objects.get(id=3)
+        article = Article()
+        article.title = 'bney'
+        article.content = 'bnhh'
     except Article.DoesNotExist:
         # Handle the case where the article does not exist
         context = {
@@ -20,17 +27,32 @@ def home(request):
             "content": "The article you are looking for does not exist.",
             "id": None  
         }
-        return render(request, 'myapp/some_file.html', context)
+     
+        html_string = render_to_string('myapp/base.html', context)
+
+
+        return HttpResponse(html_string)
    
     context = {
         "title": article.title,
         "content": article.content,
         "id": article.id
     }
+
  
-    return render(request, 'myapp/some_file.html', context)
+    return render(request,'myapp/base.html',context=context)
 
 
 def abc(request):
-    res = "hignkfs"
-    return HttpResponse(res)
+    article = Article.objects.get(id=1)
+    context = {
+        "title" :article.title,
+        "content" : article.content
+    }
+
+    try:
+        return render(request, 'myapp/child.html', context)
+    except TemplateDoesNotExist:
+        return render(request, 'myapp/base.html',
+        context=context)
+
