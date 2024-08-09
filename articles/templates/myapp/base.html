@@ -24,6 +24,14 @@
         <p>&copy; 2024 My Amazing Site</p>
         {% endblock %}
     </footer>
+    <div>
+        <ul>
+            {% for obj in objects%}
+            <li>{{obj}}</li>
+            {% endfor %}
+            
+        </ul>
+    </div>
 
    
 </body>

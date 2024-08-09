@@ -14,12 +14,11 @@ import random
 
 
 def home(request):
-    print("hi i am here")
     # This function takes in a request and then returns HTML as Response
     try:
         article = Article()
-        article.title = 'bney'
-        article.content = 'bnhh'
+        article.title = input('Enter the title: ')
+        article.content = input('Enter content: ')
     except Article.DoesNotExist:
         # Handle the case where the article does not exist
         context = {
@@ -45,7 +44,9 @@ def home(request):
 
 def abc(request):
     article = Article.objects.get(id=1)
+    objects_queryset = Article.objects.all()
     context = {
+        'objects': objects_queryset,
         "title" :article.title,
         "content" : article.content
     }
